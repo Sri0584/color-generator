@@ -1,0 +1,31 @@
+export const sizes = ["tiny", "small", "medium", "large", "huge"];
+export const colors = [
+	"navy",
+	"blue",
+	"aqua",
+	"teal",
+	"olive",
+	"green",
+	"lime",
+	"yellow",
+	"orange",
+	"red",
+	"maroon",
+	"fuchsia",
+	"purple",
+	"silver",
+	"gray",
+	"black",
+];
+export const fruits = [
+	"apple",
+	"banana",
+	"watermelon",
+	"orange",
+	"peach",
+	"tangerine",
+	"pear",
+	"kiwi",
+	"mango",
+	"pineapple",
+];
