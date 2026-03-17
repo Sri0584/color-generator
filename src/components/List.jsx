@@ -19,6 +19,7 @@ const List = ({ items }) => {
 							color={color}
 							key={name}
 							setSelectedItems={setSelectedItems}
+							selectedItems={selectedItems}
 						/>
 					);
 				})}

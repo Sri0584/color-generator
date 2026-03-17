@@ -1,15 +1,22 @@
 import { memo, useEffect, useState } from "react";
 
-const ListItem = ({ name, color, setSelectedItems }) => {
+const ListItem = ({ name, color, setSelectedItems, selectedItems }) => {
 	const [itemClicked, setItemClicked] = useState(false);
-	console.log("list item");
 
 	const handleClick = () => {
 		setItemClicked((prev) => !prev);
 	};
 
 	useEffect(() => {
-		itemClicked && setSelectedItems((prev) => [...prev, name]);
+		if (itemClicked) {
+			setSelectedItems((prev) => [...prev, name]);
+		} else {
+			const filterItems =
+				selectedItems.includes(name) ?
+					[...selectedItems].filter((item) => item !== name)
+				:	[...selectedItems];
+			setSelectedItems(filterItems);
+		}
 	}, [itemClicked]);
 
 	return (
