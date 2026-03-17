@@ -1,32 +1,10 @@
-import { memo, useEffect, useState } from "react";
+import { memo } from "react";
 
-const ListItem = ({ name, color, setSelectedItems, selectedItems }) => {
-	const [itemClicked, setItemClicked] = useState(false);
-
-	const handleClick = () => {
-		setItemClicked((prev) => !prev);
-	};
-
-	useEffect(() => {
-		if (itemClicked) {
-			setSelectedItems((prev) => [...prev, name]);
-		} else {
-			const filterItems =
-				selectedItems.includes(name) ?
-					[...selectedItems].filter((item) => item !== name)
-				:	[...selectedItems];
-			setSelectedItems(filterItems);
-		}
-	}, [itemClicked]);
-
+const ListItem = ({ name, color, isSelected, handleClick }) => {
 	return (
 		<li
-			className={
-				itemClicked ?
-					`List__item List__item--${color} item-clicked`
-				:	`List__item List__item--${color}`
-			}
-			onClick={handleClick}
+			className={`List__item List__item--${color}${isSelected ? " item-clicked" : ""}`}
+			onClick={() => handleClick(name)}
 		>
 			{name}
 		</li>

@@ -1,13 +1,21 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import ListItem from "./ListItem";
 import ShowSelectedItems from "./ShowSelectedItems";
 
 const List = ({ items }) => {
-	const [selectedItems, setSelectedItems] = useState([]);
+	const [selectedItems, setSelectedItems] = useState(new Set());
+
+	const handleClick = useCallback((name) => {
+		setSelectedItems((prev) => {
+			const next = new Set(prev);
+			next.has(name) ? next.delete(name) : next.add(name);
+			return next;
+		});
+	}, []);
 
 	return (
 		<>
-			{selectedItems?.length > 0 && (
+			{selectedItems?.size > 0 && (
 				<ShowSelectedItems selectedItems={selectedItems} />
 			)}
 			<ul className='List'>
@@ -18,8 +26,8 @@ const List = ({ items }) => {
 							name={name}
 							color={color}
 							key={name}
-							setSelectedItems={setSelectedItems}
-							selectedItems={selectedItems}
+							isSelected={selectedItems.has(name)}
+							handleClick={handleClick}
 						/>
 					);
 				})}

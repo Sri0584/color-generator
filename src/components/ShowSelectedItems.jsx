@@ -4,7 +4,7 @@ const ShowSelectedItems = ({ selectedItems }) => {
 			<section>
 				<h2>Selected Items</h2>
 				<ul className='selected-items'>
-					{selectedItems.map((item) => (
+					{[...selectedItems].map((item) => (
 						<li key={item}>{item}</li>
 					))}
 				</ul>

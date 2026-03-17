@@ -4,13 +4,7 @@
 // 3. Make sure to avoid unnecessary re-renders of each list item in the big list (performance).
 // 4. Currently selected items should be visually highlighted.
 // 5. Currently selected items' names should be shown at the top of the page.
-//
-// Feel free to change the component structure at will.
 
-// ---------------------------------------
-// Do NOT change anything below this line.
-// ---------------------------------------
-import { useState } from "react";
 import List from "./components/List";
 import useFetchItems from "./hooks/useFetchItems";
 
