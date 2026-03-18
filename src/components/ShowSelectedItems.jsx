@@ -1,4 +1,6 @@
-const ShowSelectedItems = ({ selectedItems }) => {
+import { memo } from "react";
+
+const ShowSelectedItems = memo(({ selectedItems }) => {
 	return (
 		<main>
 			<section>
@@ -11,6 +13,6 @@ const ShowSelectedItems = ({ selectedItems }) => {
 			</section>
 		</main>
 	);
-};
+});
 
 export default ShowSelectedItems;

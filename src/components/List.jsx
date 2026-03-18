@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import ListItem from "./ListItem";
 import ShowSelectedItems from "./ShowSelectedItems";
 
@@ -13,10 +13,12 @@ const List = ({ items }) => {
 		});
 	}, []);
 
+	const selectedArray = useMemo(() => [...selectedItems], [selectedItems]);
+
 	return (
 		<>
 			{selectedItems?.size > 0 && (
-				<ShowSelectedItems selectedItems={selectedItems} />
+				<ShowSelectedItems selectedItems={selectedArray} />
 			)}
 			<ul className='List'>
 				{items.map((item) => {
